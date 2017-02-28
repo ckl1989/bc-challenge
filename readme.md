@@ -1,4 +1,4 @@
-# BuildingConnected On-site: Backend Files Challenge
+# BuildingConnected On-site: Frontend Files Challenge
 Welcome, we're glad you've joined us today!
 
 ## Environment Setup
