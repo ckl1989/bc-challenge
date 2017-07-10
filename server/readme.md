@@ -124,7 +124,7 @@ Name | Type | Description
 
 Name | Type | Description
 :--- | :--- | :---------
-`filename` | `String` | The name of the folder (required).
+`name` | `String` | The name of the folder (required).
 
 #### Example Response (Status: 200)
 
