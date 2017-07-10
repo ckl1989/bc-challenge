@@ -53,7 +53,7 @@ Name | Type | Description
 Name | Type | Description
 :--- | :--- | :---------
 `file` | `Multipart` | The actual file to be uploaded (required).
-`fielname` | `String` | The name of the file (required).
+`filename` | `String` | The name of the file (required).
 `size` | `Number` | The size of the file in bytes.
 
 #### Example Response (Status: 200)
@@ -124,7 +124,7 @@ Name | Type | Description
 
 Name | Type | Description
 :--- | :--- | :---------
-`fielname` | `String` | The name of the folder (required).
+`filename` | `String` | The name of the folder (required).
 
 #### Example Response (Status: 200)
 
