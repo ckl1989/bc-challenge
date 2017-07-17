@@ -1,43 +1,5 @@
 # API Documentation
 
-## POST /api/projects
-
-Create new project.
-
-#### Body Parameters
-
-Name | Type | Description
-:--- | :--- | :---------
-`name` | `String` | Name of the project (required).
-
-#### Example Response (Status: 200)
-
-```js
-{
-  _id: '524641ff6673e40400000014',
-  name: 'Project A',
-}
-```
-
-## GET /api/projects
-
-Get all projects.
-
-#### Example Response (Status: 200)
-
-```js
-[
-  {
-    _id: '524641ff6673e40400000014',
-    name: 'Project A',
-  },
-  {
-    _id: '524641ff6673e40400000015',
-    name: 'Project B',
-  },
-]
-```
-
 ## POST /api/files
 
 Upload a new file.
@@ -45,8 +7,7 @@ Upload a new file.
 #### Query Parameters
 Name | Type | Description
 :--- | :--- | :---------
-`projectId` | `ObjectId` | ID of this project (required).
-`parentId` | `ObjectId` | ID of this file's parent (optional) (defaults to `projectId` which is considered to be the root folder of this project).
+`parentId` | `ObjectId` | ID of this file's parent (optional)
 
 #### Body Parameters
 
@@ -64,18 +25,12 @@ Name | Type | Description
   name: 'File A',
   size: 10000,
   parentId: '524641ff6673e40400000010',
-  projectId: '524641ff6673e40400000091',
 }
 ```
 
 ## GET /api/files/
 
-Gets all files and folders at the root of a project.
-
-#### Query Parameters
-Name | Type | Description
-:--- | :--- | :---------
-`projectId` | `ObjectId` | ID of this project (required).
+Gets all files and folders at the root.
 
 #### Example Response (Status: 200)
 
@@ -84,18 +39,16 @@ Name | Type | Description
   {
     _id: '524641ff6673e40400000014',
     dateModified: '2013-09-28T02:42:07Z',
-    name: 'File A.pdf',
+    name: 'FileBar.pdf',
     parentId: '524641ff6673e40400000015',
-    projectId: '524641ff6673e40400000015',
     size: 10000,
     type: 'FILE',
   },
   {
     _id: '524641ff6673e40400000014',
     dateModified: '2013-09-28T02:42:07Z',
-    name: 'Folder A.pdf',
+    name: 'Folder Foo',
     parentId: '524641ff6673e40400000015',
-    projectId: '524641ff6673e40400000015',
     size: '',
     type: 'FOLDER',
   }
@@ -117,8 +70,7 @@ Creates a new folder.
 #### Query Parameters
 Name | Type | Description
 :--- | :--- | :---------
-`projectId` | `ObjectId` | ID of this project (required).
-`parentId` | `ObjectId` | ID of this folders's parent (optional) (defaults to `projectId` which is considered to be the root folder of this project).
+`parentId` | `ObjectId` | ID of this folders's parent (optional)
 
 #### Body Parameters
 
@@ -134,7 +86,6 @@ Name | Type | Description
   name: 'Folder A',
   size: '',
   parentId: '524641ff6673e40400000010',
-  projectId: '524641ff6673e40400000091',
 }
 ```
 
@@ -149,18 +100,16 @@ Gets all files and folders within a given `folderId`.
   {
     _id: '524641ff6673e40400000014',
     dateModified: '2013-09-28T02:42:07Z',
-    name: 'File A.pdf',
+    name: 'FileBar.pdf',
     parentId: '524641ff6673e40400000015',
-    projectId: '524641ff6673e40400000015',
     size: 10000,
     type: 'FILE',
   },
   {
     _id: '524641ff6673e40400000014',
     dateModified: '2013-09-28T02:42:07Z',
-    name: 'Folder A.pdf',
+    name: 'Folder Foo',
     parentId: '524641ff6673e40400000015',
-    projectId: '524641ff6673e40400000015',
     size: '',
     type: 'FOLDER',
   }

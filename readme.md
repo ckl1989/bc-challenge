@@ -4,7 +4,7 @@ Welcome, we're glad you've joined us today!
 ## Environment Setup
 To get your basic environment up and running, we assume you've already:
 
-1. Cloned this repo, made a copy, and pushed up to a new public github repo.
+1. Cloned this repo, made a copy, and pushed up to a new public Github repo.
 3. Installed Docker
 4. Obtained AWS Credentials from someone on the team
 5. Installed Node v6
@@ -30,13 +30,14 @@ This repo comes with Babel set up to support ES2015 (including module syntax) an
 
 We've created an API ([documentation here](./server)) for a number of the files explorer features. What we need you to do is to design and hook up a basic UI that will allow the user to:
 
-* Create and select projects
-* List all items at the root of a project
-* Create a folder at the root of a project
-* Upload a file at the root of a project
-* List all items within a folder
+* Create a folder at the root level
+* View folders at the root level
 * Create a folder within a folder
+* View folders at a nested level
+* Upload a file at the root of a project
+* Download the file
 * Upload a file within a folder
+* Toggle folders open and close
 
 ## As you begin...
 

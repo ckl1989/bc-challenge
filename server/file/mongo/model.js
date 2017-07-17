@@ -17,10 +17,6 @@ const schema = new mongoose.Schema({
 	parentId: {
 		type: 'ObjectId',
 	},
-	projectId: {
-		type: 'ObjectId',
-		required: true,
-	},
 	size: {
 		type: Number,
 	},
