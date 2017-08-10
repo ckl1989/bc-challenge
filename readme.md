@@ -34,10 +34,10 @@ We've created an API ([documentation here](./server)) for a number of the files 
 * View folders at the root level
 * Create a folder within a folder
 * View folders at a nested level
+* Toggle folders open and close
 * Upload a file at the root level
 * Download the file
 * Upload a file within a folder
-* Toggle folders open and close
 
 ## As you begin...
 
