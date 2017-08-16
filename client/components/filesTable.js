@@ -5,15 +5,20 @@ class FilesTable {
     this.parent = parent;
     this.options = options;
     this._setup();
+    this.parentsRowModel = {};
   }
 
   _setup() {
     var $tableBody = this.parent.find("#files-table-body");
-    this.tableBodyEl = new FilesTableBody($tableBody);
+    this.tableBodyEl = new FilesTableBody($tableBody, {});
   }
 
   setData(files){
     this.tableBodyEl.setData(files);
+  }
+
+  insertData(item, parentId) {
+    this.tableBodyEl.insertData(item, parentId);
   }
 }
 
