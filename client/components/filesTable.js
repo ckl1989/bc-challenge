@@ -1,6 +1,10 @@
-class FilesTable extends Component {
+import FilesTableBody from './filesTableBody';
+
+class FilesTable {
   constructor(parent, options) {
-    super(parent, options);
+    this.parent = parent;
+    this.options = options;
+    this._setup();
   }
 
   _setup() {
@@ -12,3 +16,5 @@ class FilesTable extends Component {
     );
   }
 }
+
+export default FilesTable

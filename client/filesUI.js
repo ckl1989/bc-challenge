@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+import FilesTable from './components/filesTable'
+
 class FilesUI {
   constructor(){
     var $contentEl = $('#files-page-content');
@@ -11,11 +13,10 @@ class FilesUI {
     axios.get('/api/files')
     	.then(res => res.data)
     	.then(files => {
-        var tableComponent = new FilesTable($tableEl, files);
+        var tableComponent = new FilesTable($tableEl, {model:files});
     		console.log(files)
     })
-
-
   }
-
 }
+
+export default FilesUI
