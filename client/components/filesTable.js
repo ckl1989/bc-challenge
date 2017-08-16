@@ -9,11 +9,11 @@ class FilesTable {
 
   _setup() {
     var $tableBody = this.parent.find("#files-table-body");
-    var tableBodyEl = new FilesTableBody($tableBody,
-      {
-        model: this.options.model
-      }
-    );
+    this.tableBodyEl = new FilesTableBody($tableBody);
+  }
+
+  setData(files){
+    this.tableBodyEl.setData(files);
   }
 }
 

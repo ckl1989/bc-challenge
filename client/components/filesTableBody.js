@@ -6,8 +6,7 @@ class FilesTableBody {
   }
 
   _setup() {
-    var model = this.options.model;
-    this.generateRows(model);
+    
   }
 
   generateRows(model){
@@ -23,6 +22,11 @@ class FilesTableBody {
 
       this.parent.append($tableRow);
     });
+  }
+
+  setData(files){
+    this.parent.empty();
+    this.generateRows(files);
   }
 }
 

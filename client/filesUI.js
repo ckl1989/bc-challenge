@@ -1,21 +1,29 @@
 import axios from 'axios'
 
-import FilesTable from './components/filesTable'
+import FilesTable from './components/filesTable';
+import FilesToolbar from './components/filesToolbar'
+import FilesController from './filesController'
 
 class FilesUI {
   constructor(){
+
+    var filesController = new FilesController();
+
     var $contentEl = $('#files-page-content');
 
-    var $toolbarEl = $('#upload-toolbar');
+    var $toolbarEl = $('#files-toolbar');
 
-    var $tableEl = $("#files-table")
+    var $tableEl = $("#files-table");
 
-    axios.get('/api/files')
-    	.then(res => res.data)
-    	.then(files => {
-        var tableComponent = new FilesTable($tableEl, {model:files});
-    		console.log(files)
-    })
+    var toolbarComponent = new FilesToolbar($toolbarEl, {
+      onNewFolder: filesController.createFolder
+    });
+
+    var tableComponent = new FilesTable($tableEl);
+
+    filesController.getRootItems().then((items) => {
+      tableComponent.setData(items);
+    });
   }
 }
 
