@@ -11,4 +11,4 @@ axios.get('/api/files')
 		console.log(files)
 	})
 
-ReactDOM.render(<App />, document.getElementById('bc-placeholder'))
+// ReactDOM.render(<App />, document.getElementById('bc-placeholder'))
