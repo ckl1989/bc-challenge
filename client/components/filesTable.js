@@ -10,7 +10,9 @@ class FilesTable {
 
   _setup() {
     var $tableBody = this.parent.find("#files-table-body");
-    this.tableBodyEl = new FilesTableBody($tableBody, {});
+    this.tableBodyEl = new FilesTableBody($tableBody, {}, {
+      onCreateFolder: this.options.onCreateFolder
+    });
   }
 
   setData(files){

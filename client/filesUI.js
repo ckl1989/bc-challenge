@@ -18,7 +18,9 @@ class FilesUI {
       onNewFolder: this.createFolder.bind(this)
     });
 
-    this.tableComponent = new FilesTable($tableEl);
+    this.tableComponent = new FilesTable($tableEl, {
+      onNewFolder: this.createFolder.bind(this)
+    });
 
     this.filesController.getRootItems().then((items) => {
       this.tableComponent.setData(items);

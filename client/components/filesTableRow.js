@@ -11,9 +11,18 @@ class FilesTableRow {
   render() {
     var $tableRow = $("<tr>/</tr>");
 
-    var $nameInputTD = $('<input type="text" value="NewFolder">')
-
     var $nameTD = $("<td>" + this.fileEntry.name + "</td>");
+
+    if(this.isNew){
+      $nameTD = $('<input type="text" value="NewFolder">');
+      $nameTD.blur(() => {
+        var newFolderName = $nameTD.value;
+        this.options.createFolder(
+          name: newFolderName
+        )
+      })
+    }
+
     var $sizeTD = $("<td>" + this.fileEntry.size + "</td>");
     var $lastModified = $("<td>" + this.fileEntry.dateModified + "</td>");
 

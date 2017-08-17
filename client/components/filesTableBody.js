@@ -37,16 +37,6 @@ class FilesTableBody {
 
   appendRow(fileEntry, $parentRowEl){
     //add the fileEntry to the internal parent model if it is a folder
-    // var tableRowComponent = new FilesTableRow(fileEntry);
-    // var $tableRow = tableRowComponent.render();
-    //
-    // if(fileEntry.type === "FOLDER"){
-    //   this.parentsRowModel[fileEntry.id] = $tableRow;
-    // }
-    //
-    // $parentRowEl.append($tableRow);
-
-
     var $tableRow = $("<tr>/</tr>");
 
     if(fileEntry.type === "FOLDER"){
@@ -57,11 +47,44 @@ class FilesTableBody {
     var $sizeTD = $("<td>" + fileEntry.size + "</td>");
     var $lastModified = $("<td>" + fileEntry.dateModified + "</td>");
 
+    var $actionsTD = this.createActionsTD(fileEntry, this.options.onCreateFolder);
+
     $tableRow.append($nameTD);
     $tableRow.append($sizeTD);
     $tableRow.append($lastModified);
+    $tableRow.append($actionsTD);
 
     $parentRowEl.append($tableRow);
+  }
+
+  createActionsTD(fileEntry, onNewFolderCB){
+    this.onNewFolderCB = onNewFolderCB;
+    var $actionsTD = $("<td> </td>");
+    var $newFolderButton = $('<button type="button" name="button">New Folder</button>');
+    var $dialog = $( "#dialog-message" );
+    var $folderNameInput = $dialog.find("#folderNameInput");
+    $( "#dialog-message" ).dialog({
+       autoOpen: false,
+       modal: true,
+       buttons: {
+          Create: () => {
+            this.onNewFolderCB({
+              name: $folderNameInput.val(),
+              parentId: fileEntry.parent
+            });
+          },
+          Cancel: function() {$(this).dialog("close");}
+       },
+    });
+
+
+    $newFolderButton.click(() => {
+      $("#dialog-message").dialog( "open" );
+      console.log("new folder on " + fileEntry.parent);
+    });
+
+    $actionsTD.append($newFolderButton)
+    return $actionsTD;
   }
 }
 
