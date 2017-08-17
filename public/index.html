@@ -8,24 +8,13 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<!-- <div id="bc-placeholder"></div> -->
+<script
+  src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
+  integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="
+  crossorigin="anonymous"></script>
 
 
 <script src="/dist/index.js"></script>
-
-<!-- <script src="/components/component.js"></script>
-<script src="filesUI.js"></script>
-<script src="main.js"></script>
-
-<script src="/components/filesTableBody.js"></script>
-<script src="/components/filesTable.js"></script> -->
-
-<!-- <script src="/dist/components/component.js"></script>
-<script src="/dist/filesUI.js"></script>
-<script src="/dist/main.js"></script>
-
-<script src="/dist/components/filesTableBody.js"></script>
-<script src="/dist/components/filesTable.js"></script> -->
 
 
 <body onload="init()">
@@ -49,6 +38,16 @@
         <tbody id="files-table-body">
         </tbody>
       </table>
+    </div>
+
+
+    <div id="dialog-message" title="New Folder">
+        <span class="ui-state-default"><span class="ui-icon ui-icon-info" style="float:left; margin:0 7px 0 0;"></span></span>
+        <div style="margin-left: 23px;">
+          <div class="dialog-content">
+            Folder Name: <input type="text" id="folderNameInput" value="New Folder">
+          </div>
+        </div>
     </div>
 
   </div>

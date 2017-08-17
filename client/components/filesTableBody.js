@@ -1,3 +1,5 @@
+import FilesTableRow from './filesTableRow';
+
 class FilesTableBody {
   constructor(parent, parentsRowModel, options) {
     this.parent = parent;
@@ -14,6 +16,7 @@ class FilesTableBody {
     model.forEach((fileEntry) => {
       this.appendRow(fileEntry, this.parent);
     });
+    console.log(this.parentsRowModel);
   }
 
   setData(files){
@@ -29,9 +32,21 @@ class FilesTableBody {
       $parentRowEl = this.parent;
     }
     this.appendRow(fileEntry, $parentRowEl);
+    console.log(this.parentsRowModel);
   }
 
   appendRow(fileEntry, $parentRowEl){
+    //add the fileEntry to the internal parent model if it is a folder
+    // var tableRowComponent = new FilesTableRow(fileEntry);
+    // var $tableRow = tableRowComponent.render();
+    //
+    // if(fileEntry.type === "FOLDER"){
+    //   this.parentsRowModel[fileEntry.id] = $tableRow;
+    // }
+    //
+    // $parentRowEl.append($tableRow);
+
+
     var $tableRow = $("<tr>/</tr>");
 
     if(fileEntry.type === "FOLDER"){

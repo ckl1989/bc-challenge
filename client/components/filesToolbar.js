@@ -7,15 +7,24 @@ class FilesToolbar {
 
   _setup() {
     var $newFolderButton = this.parent.find("#newFolderButton");
+    var $dialog = $( "#dialog-message" );
+    var $folderNameInput = $dialog.find("#folderNameInput");
 
-    $newFolderButton.click(() => {
-      var newFolder = {
-        name: "newerFolder",
-        size: ""
-      };
-      this.options.onNewFolder(newFolder);
-      console.log("new folder button clicked");
+    $( "#dialog-message" ).dialog({
+       autoOpen: false,
+       modal: true,
+       buttons: {
+          Create: () => {
+            this.options.onNewFolder({name: $folderNameInput.val()});
+          },
+          Cancel: function() {$(this).dialog("close");}
+       },
     });
+
+    $newFolderButton.click(function() {
+       $("#dialog-message").dialog( "open" );
+    });
+
   }
 }
 

@@ -5,6 +5,7 @@ class File {
     this.parentId = properties.parentId || "";
     this.dateModified = properties.dateModified || "";
     this.size = properties.size || "";
+    this.type = "FILE";
   }
 }
 

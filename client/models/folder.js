@@ -5,6 +5,7 @@ class Folder {
     this.parentId = properties.parentId || "";
     this.dateModified = properties.dateModified || "";
     this.size = properties.size || "";
+    this.type = "FOLDER";
   }
 }
 
